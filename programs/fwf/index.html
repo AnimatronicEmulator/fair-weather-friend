@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Scripts -->
+        <script src="fwf.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <!-- Icons -->
+        <link rel="icon" type="image/png" sizes="32x32" href="../../static/icons/outside-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="../../static/icons/outside-16x16.png"/>
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://unpkg.com/98.css"/>
+        <link rel="stylesheet" href="fwf.css">
+
+        <title>Fair Weather Friend</title>
+    </head>
+    <body>
+        <div id="fwf" class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">
+                    <img src="../../static/icons/outside-16x16.png">&nbsp;&nbsp;Fair Weather Friend
+                </div>
+                <div class="title-bar-controls">
+                    <button id="fwf-min" aria-label="Minimize" class="min-button"></button>
+                    <button id="fwf-close" aria-label="Close" class="close-button"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <menu id="program-tabs" role="tablist">
+                    <li id="current-tab" class="d-flex fwf-tab" role="tab" aria-selected="true">Current</li>
+                    <li id="extended-tab" class="d-flex fwf-tab" role="tab" aria-selected="false">Extended</li>
+                    <li id="almanac-tab" class="d-flex fwf-tab" role="tab" aria-selected="false">Almanac</li>
+                    <li id="alerts-tab" class="d-flex fwf-tab" role="tab" aria-selected="false">Alerts</li>
+                </menu>
+                <div id="current" class="fwf-display" role="tabpanel">
+                    <div class="header">
+                        <div class="left">
+                            <div>Current</div><div>Conditions</div>
+                        </div>
+                        <div class="right">
+                            <div class="program-clock">1:33:22 PM</div>
+                            <div class="program-date">TUE JUN 23</div>
+                        </div>
+                    </div>
+                    <div class="single-card data">
+                        <div class="left">
+                            <div id="current-t">75&deg;</div>
+                            <div id="current-wx">Fair, Windy</div>
+                            <div><img src="https://www.dropbox.com/scl/fi/mpwqnzlw751syxzu24xz3/Wind-Clear-Day.gif?rlkey=kn7zz05qy79y0dcn6maj9kkjh&raw=1" id="current-icon"></div>
+                            <div id="current-wind">Wind: NE 14<br>Gusts to 20</div>
+                        </div>
+                        <div class="right">
+                            <div class="location-display">Little Haiti, Brooklyn</div>
+                            <div><div>Humidity:</div><div id="current-rh">61%</div></div>
+                            <div><div>Dewpoint:</div><div id="current-dew">61&deg;</div></div>
+                            <div><div>Ceiling:</div><div id="current-ceil">Unlimited</div></div>
+                            <div><div>Visibility:</div><div id="current-vis">9 mi.</div></div>
+                            <div><div>Pressure:</div><div id="current-p">29.94 in.</div></div>
+                            <div id="current-wbgt-container" class="inactive"><div>WBGT:</div><div id="current-wbgt"></div></div>
+                            <div id="current-heat-container" class="inactive"><div>Heat Index:</div><div id="current-heat">95&deg;</div></div>
+                            <div id="current-chill-container" class="inactive"><div>Wind Chill:</div><div id="current-chill">-5&deg;</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="extended" class="fwf-display inactive" role="tabpanel">
+                    <div class="header">
+                        <div class="left">
+                            <div class="location-display">Little Haiti, Brooklyn</div>
+                            <div>Extended Forecast</div>
+                        </div>
+                        <div class="right">
+                            <div class="program-clock">1:33:22 PM</div>
+                            <div class="program-date">TUE JUN 23</div>
+                        </div>
+                    </div>
+                    <div id="card-a" class="triple-card">
+                        <div id="extended-wday-a" class="wday">THU</div>
+                        <div class="icon-container"><img src="https://www.dropbox.com/scl/fi/vj1nilfds2tfpplgit8ip/Thunder.gif?rlkey=mj07g7ad1frbullxbc56t1sou&raw=1" alt="" id="extended-icon-a"></div>
+                        <div id="extended-wx-a" class="wx">Scattered T'storms</div>
+                        <div class="temps-container">
+                            <div class="temp-container">
+                                <div class="lo-temp-title temp-title">Lo</div>
+                                <div id="extended-lo-a" class="temp">61</div>
+                            </div>
+                            <div class="temp-container">
+                                <div class="hi-temp-title temp-title">Hi</div>
+                                <div id="extended-hi-a" class="temp">84</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="card-b" class="triple-card">
+                        <div id="extended-wday-b" class="wday">FRI</div>
+                        <div class="icon-container"><img src="https://www.dropbox.com/scl/fi/vj1nilfds2tfpplgit8ip/Thunder.gif?rlkey=mj07g7ad1frbullxbc56t1sou&raw=1" alt="" id="extended-icon-b"></div>
+                        <div id="extended-wx-b" class="wx">Scattered T'storms</div>
+                        <div class="temps-container">
+                            <div class="temp-container">
+                                <div class="lo-temp-title temp-title">Lo</div>
+                                <div id="extended-lo-b" class="temp">104</div>
+                            </div>
+                            <div class="temp-container">
+                                <div class="hi-temp-title temp-title">Hi</div>
+                                <div id="extended-hi-b" class="temp">300</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="card-c" class="triple-card">
+                        <div id="extended-wday-c" class="wday">SAT</div>
+                        <div class="icon-container"><img src="https://www.dropbox.com/scl/fi/vj1nilfds2tfpplgit8ip/Thunder.gif?rlkey=mj07g7ad1frbullxbc56t1sou&raw=1" alt="" id="extended-icon-c"></div>
+                        <div id="extended-wx-c" class="wx">Demo</div>
+                        <div class="temps-container">
+                            <div class="temp-container">
+                                <div class="lo-temp-title temp-title">Lo</div>
+                                <div id="extended-lo-c" class="temp">64</div>
+                            </div>
+                            <div class="temp-container">
+                                <div class="hi-temp-title temp-title">Hi</div>
+                                <div id="extended-hi-c" class="temp">78</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="almanac" class="fwf-display inactive" role="tabpanel">
+                    <div class="header">
+                        <div class="left">Almanac</div>
+                        <div class="right">
+                            <div class="program-clock">1:33:22 PM</div>
+                            <div class="program-date">TUE JUN 23</div>
+                        </div>
+                    </div>
+                    <div class="data">
+                        <div id="solar-card">
+                            <div class="solar-titles">
+                                <div>Sunrise:</div><div>Sunset:</div>
+                            </div>
+                            <div class="solar-day-a solar-day">
+                                <div id="almanac-wday-a" class="wday">Thursday</div>
+                                <div id="almanac-rise-a" class="sunriseset">6:31 AM</div>
+                                <div id="almanac-set-a" class="sunriseset">6:55 PM</div>
+                            </div>
+                            <div class="solar-day-b solar-day">
+                                <div id="almanac-wday-b" class="wday">Friday</div>
+                                <div id="almanac-rise-b" class="sunriseset">6:29 AM</div>
+                                <div id="almanac-set-b" class="sunriseset">6:55 PM</div>
+                            </div>
+                        </div>
+                        <div id="lunar-card">
+                            <div class="lunar-title">Moon Data:</div>
+                            <div class="phase-cards">
+                                <div class="phase-card">
+                                    <div id="almanac-phase-a" class="phase-title">Full</div>
+                                    <img id="almanac-icon-a" class="phase-icon" src="https://www.dropbox.com/scl/fi/am53eg8p1h7bc7zb5edc5/Full-Moon.gif?rlkey=5cjsdgirrf3rrswz6r1agthmw&raw=1" alt="">
+                                    <div id="almanac-date-a" class="phase-date">Mar 30</div>
+                                </div>
+                                <div class="phase-card">
+                                    <div id="almanac-phase-b" class="phase-title">Last</div>
+                                    <img id="almanac-icon-b" class="phase-icon" src="https://www.dropbox.com/scl/fi/jewqg4y4jfj52yoj6ouc4/Last-Quarter.gif?rlkey=m7xyymfyoo28i86a2f7os0p0m&raw=1" alt="">
+                                    <div id="almanac-date-b" class="phase-date">Apr 7</div>
+                                </div>
+                                <div class="phase-card">
+                                    <div id="almanac-phase-c" class="phase-title">New</div>
+                                    <img id="almanac-icon-c" class="phase-icon" src="https://www.dropbox.com/scl/fi/b61jhqovxops9pqfqn1t8/New-Moon.gif?rlkey=2wlznm8dpw2jmw2u4zg7i6q06&raw=1" alt="">
+                                    <div id="almanacdate-c" class="phase-date">Apr 14</div>
+                                </div>
+                                <div class="phase-card">
+                                    <div id="almanac-phase-d" class="phase-title">First</div>
+                                    <img id="almanac-icon-d" class="phase-icon" src="https://www.dropbox.com/scl/fi/1x5eng4a0z2h61jmol2r0/First-Quarter.gif?rlkey=qowm044z9bbkzpltihzkhkuui&raw=1" alt="">
+                                    <div id="almanac-date-d" class="phase-date">Apr 21</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="alerts" class="fwf-display inactive" role="tabpanel">
+                    <div class="header">
+                        <div class="left">
+                            <div class="location-display">Little Haiti, Brooklyn</div>
+                            <div>NOAA Active Alerts</div>
+                        </div>
+                        <div class="right">
+                            <div class="program-clock">1:33:22 PM</div>
+                            <div class="program-date">TUE JUN 23</div>
+                        </div>
+                    </div>
+                    <div class="single-card data">
+                        <pre class='alert-entry'>&#10;Coastal Hazard Message&#10;National Weather Service Tiyan GU&#10;424 AM ChST Sat Mar 2 2024&#10;&#10;GUZ001-MPZ001>003-020800-&#10;/O.CON.PGUM.SU.W.0004.000000T0000Z-240301T2000Z/&#10;/O.CON.PGUM.SU.Y.0028.240301T2000Z-240302T2000Z/&#10;/O.CON.PGUM.CF.S.0004.000000T0000Z-240301T2000Z/&#10;/O.CON.PGUM.RP.S.0007.000000T0000Z-240302T2000Z/&#10;Guam-Rota-Tinian-Saipan-&#10;424 AM ChST Sat Mar 2 2024&#10;&#10;...HIGH SURF WARNING NO LONGER IN EFFECT...&#10;...HIGH SURF ADVISORY IN EFFECT UNTIL 6 AM CHST SUNDAY ALONG WEST,&#10;NORTH AND EAST FACING REEFS...&#10;...HIGH RISK OF RIP CURRENTS THROUGH LATE TONIGHT ALONG WEST, NORTH&#10;AND EAST FACING REEFS...&#10;&#10;* WHAT...For the High Surf Advisory, large breaking waves of 9 to&#10;  12 feet in the surf zone. For the High Rip Current Risk,&#10;  dangerous rip currents.&#10;&#10;* WHERE...For the High Surf Advisory and High Rip Current Risk,&#10;  along west, north and east facing reefs.&#10;&#10;* WHEN...For the High Surf Advisory, until 6 AM Sunday. For the&#10;  High Rip Current Risk, through late tonight.&#10;&#10;* IMPACTS...Breaking waves can sweep people off jetties and&#10;  docks, and into dangerous seas. Life-threatening swimming&#10;  conditions and significant beach erosion can be expected. Rip&#10;  currents can sweep even the best swimmers away from shore into&#10;  deeper water.&#10;&#10;* ADDITIONAL DETAILS...Surf will be dangerous along north facing&#10;  reefs today. Surf will remain hazardous tonight, gradually&#10;  subsiding by early next week.&#10;&#10;PRECAUTIONARY/PREPAREDNESS ACTIONS...&#10;&#10;Swim near a lifeguard. If caught in a rip current, relax and&#10;float. Don`t swim against the current. If able, swim in a&#10;direction following the shoreline. If unable to escape, face the&#10;shore and call or wave for help.&#10;&#10;&&&#10;&#10;$$&#10;&#10;Simpson&#10;&#10;</pre>
+                        <hr>
+                        <pre class='alert-entry'>&#10;Coastal Hazard Message&#10;National Weather Service Tiyan GU&#10;424 AM ChST Sat Mar 2 2024&#10;&#10;GUZ001-MPZ001>003-020800-&#10;/O.CON.PGUM.SU.W.0004.000000T0000Z-240301T2000Z/&#10;/O.CON.PGUM.SU.Y.0028.240301T2000Z-240302T2000Z/&#10;/O.CON.PGUM.CF.S.0004.000000T0000Z-240301T2000Z/&#10;/O.CON.PGUM.RP.S.0007.000000T0000Z-240302T2000Z/&#10;Guam-Rota-Tinian-Saipan-&#10;424 AM ChST Sat Mar 2 2024&#10;&#10;...HIGH SURF WARNING NO LONGER IN EFFECT...&#10;...HIGH SURF ADVISORY IN EFFECT UNTIL 6 AM CHST SUNDAY ALONG WEST,&#10;NORTH AND EAST FACING REEFS...&#10;...HIGH RISK OF RIP CURRENTS THROUGH LATE TONIGHT ALONG WEST, NORTH&#10;AND EAST FACING REEFS...&#10;&#10;* WHAT...For the High Surf Advisory, large breaking waves of 9 to&#10;  12 feet in the surf zone. For the High Rip Current Risk,&#10;  dangerous rip currents.&#10;&#10;* WHERE...For the High Surf Advisory and High Rip Current Risk,&#10;  along west, north and east facing reefs.&#10;&#10;* WHEN...For the High Surf Advisory, until 6 AM Sunday. For the&#10;  High Rip Current Risk, through late tonight.&#10;&#10;* IMPACTS...Breaking waves can sweep people off jetties and&#10;  docks, and into dangerous seas. Life-threatening swimming&#10;  conditions and significant beach erosion can be expected. Rip&#10;  currents can sweep even the best swimmers away from shore into&#10;  deeper water.&#10;&#10;* ADDITIONAL DETAILS...Surf will be dangerous along north facing&#10;  reefs today. Surf will remain hazardous tonight, gradually&#10;  subsiding by early next week.&#10;&#10;PRECAUTIONARY/PREPAREDNESS ACTIONS...&#10;&#10;Swim near a lifeguard. If caught in a rip current, relax and&#10;float. Don`t swim against the current. If able, swim in a&#10;direction following the shoreline. If unable to escape, face the&#10;shore and call or wave for help.&#10;&#10;&&&#10;&#10;$$&#10;&#10;Simpson&#10;&#10;</pre>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

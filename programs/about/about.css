@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'STAR 4000';
+    src: url('../../static/fonts/STAR4-wf/STAR4.woff2') format('woff2'),
+         url('../../static/fonts/STAR4-wf/STAR4.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+}
+
+.window {
+    box-sizing: border-box;
+    margin: 0;
+    line-height: 1.25rem;
+    max-width: 375px;
+}
+
+.window-body {
+    max-height: 360px;
+    overflow-y: scroll;
+    padding: 0.5rem;
+    background-color: #fff;
+    box-shadow: inset -1px 0 #dfdfdf,inset -1px 1px #000,inset -1px -1px #dfdfdf,inset 0 0 0 1px #000;
+    border-top-color: gray;
+    border-left-color: gray;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+    font-size: 12px;
+}
+
+h2 {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 13px;
+    font-weight: bold;
+    text-underline-offset: 0.3rem;
+    text-decoration: dashed underline;
+}
+
+img {
+    height: 15px;
+    width: 15px;
+}
+
+#ws-credit {
+    font-family: "STAR 4000";
+    font-size: 14px;
+    font-weight: 600;
+}
+

@@ -1,0 +1,314 @@
+@font-face {
+    font-family: 'STAR 4000';
+    src: url('../../static/fonts/STAR4-wf/STAR4.woff2') format('woff2'),
+         url('../../static/fonts/STAR4-wf/STAR4.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'STAR 4000 Extended';
+    src: url('../../static/fonts/STAR4-wf/STAR4Extended.woff2') format('woff2'),
+        url('../../static/fonts/STAR4-wf/STAR4Extended.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'STAR 4000 Small';
+    src: url('../../static/fonts/STAR4-wf/STAR4Small.woff2') format('woff2'),
+        url('../../static/fonts/STAR4-wf/STAR4Small.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* GENERAL FWF APP */
+#fwf {
+    display: flex; flex-direction: column;
+    width: fit-content; height: fit-content;
+}
+
+.window-body {
+    display: flex; flex-direction: column;
+    width: 600px; height: 400px;
+}
+
+#fwf #program-tabs {
+    display: flex;
+    justify-content: start;
+    margin: 0;
+}
+
+#fwf li {
+    padding-top: 0.11rem; padding-left: 0.3rem; padding-right: 0.3rem;
+    cursor: pointer;
+}
+
+.fwf-display {
+    font-family: "STAR 4000";
+    height: 95.5%; width: 100%;
+    display: grid;
+    grid-template-columns: 1fr repeat(3, 4fr) 1fr;
+    grid-template-rows: 1fr 3.5fr 0.3fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 4px;
+    align-items: start; justify-content: center;
+    background: linear-gradient(0deg, rgba(199,104,2,1) 10%, rgba(49,22,85,1) 77%);
+}
+
+.single-card {
+    grid-area: 2 / 2 / 3 / 5;
+    padding-bottom: 4px;
+    padding-left: 20px; padding-right: 20px;
+    background: #1f2867;
+    box-shadow: inset 1px 1px 15px 4px #3957ae;
+}
+
+/* Left section is for page title, right is for the static datetime */
+.header {
+    grid-area: 1 / 1 / 2 / 7;
+    display: flex; flex-direction: row;
+    align-items: end; justify-content: space-between;
+    margin-left: 3rem; margin-right: 3rem;
+    text-shadow: 3px 2px 5px #24240A;
+    padding-top: 5px;
+}
+
+.header .left {color: #dce26b; font-size: 24px;}
+
+.header .right {font-family: "STAR 4000 Small"; font-size: 20px;}
+
+.header .right div.program-clock, div.program-date {
+    display: flex; flex-direction: row;
+    justify-content: start; align-items: start;
+    color: aliceblue;
+    margin-bottom: 7px;
+    line-height: 90%;
+}
+
+.location-display {font-family: "STAR 4000";}
+
+.inactive {display: none !important;}
+
+/* CURRENT TAB*/
+#current {
+    & .header .left {
+        display: flex; flex-direction: column;
+        justify-content: start; align-items: start;
+    }
+
+    & .data {
+        display: grid;
+        height: 100%; max-height: 100%;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: 1fr;
+    }
+
+    & .data .left, .data .right {
+        display: flex; flex-direction: column;
+        margin-top: 0.25em; margin-bottom: 0.25em;
+        color: aliceblue;
+        font-family: "STAR 4000 Extended";
+        text-shadow: 3px 2px 5px #24240A;
+    }
+
+    & .data .left {
+        grid-area: 1 / 1 / 2 / 4;
+        align-items: center; justify-content: start;
+        font-family: "STAR 4000 Extended";
+        font-size: 24px;
+    }
+
+    #current-t {font-size: 35px;}
+
+    #current-icon {width: 100px; height: auto;}
+
+    & .data .right {
+        grid-area: 1 / 4 / 2 / 8;
+        margin-right: 0.7rem;
+    }
+
+    & .data .right .location-display {
+        font-size: 22px; color: #dce26b;
+        margin-left: -5%; padding-bottom: 0.25rem;
+    }
+
+    & .data .right > div:not(.location-display) {
+        font-family: 'STAR 4000';
+        font-size: 25px;
+        line-height: 1.3;
+        width: 100%;
+        display: flex; flex-direction: row;
+        align-items: center; justify-content: space-between;
+    }
+}
+
+/* EXTENDED TAB*/
+#extended {
+    & .location-display {
+        color: aliceblue;
+        margin-bottom: -10px;
+    }
+
+    & .triple-card {
+        height: 100%;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: space-between;
+        background: rgb(31,40,103);
+        background: linear-gradient(0deg, rgba(31,40,103,1) 6%, rgba(0,120,232,1) 76%);
+        outline: 4px groove #F0F8FF;
+        font-family: "STAR 4000";
+        font-size: 22px;
+        color: aliceblue;
+        text-shadow: 3px 2px 5px #24240A;
+    }
+    
+    & #card-a {grid-area: 2 / 2 / 3 / 3;}
+    
+    & #card-b {grid-area: 2 / 3 / 3 / 4;}
+    
+    & #card-c {grid-area: 2 / 4 / 3 / 5;}
+
+    & .wday {
+        display: flex;
+        align-items: center; justify-content: center;
+        font-size: 25px;
+        color: #dce26b;
+    }
+
+    & .icon-container {
+        display: flex;
+        align-items: start; justify-content: center;
+    }
+
+    & .icon-container img {
+        max-height: 105px; width: auto;
+    }
+
+    & .wx {
+        display: flex; 
+        align-items: center; justify-content: center;
+        text-align: center;
+    }
+
+    & .temps-container {
+        display: flex; flex-direction: row;
+        align-items: center; justify-content: space-evenly;
+    }
+
+    & .temp-container {
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: space-between;
+        margin-left: 8px; margin-right: 8px;
+    }
+
+    & .lo-temp-title {
+        color: rgb(157, 174, 230);
+    }
+
+    & .hi-temp-title {
+        color: #dce26b;
+    }
+
+    & .temp {
+        font-size: 35px;
+    }
+}
+
+/* ALMANAC TAB */
+#almanac {
+    & .data {
+        width: 103.45%;
+        height: 100%;
+        grid-area: 2 / 1 / 4 / 6;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(10, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        font-size: 24px;
+        line-height: 96%;
+        color: aliceblue;
+        text-shadow: 3px 2px 5px #24240A;
+    }
+
+    & #solar-card {
+        grid-area: 1 / 1 / 5 / 2;
+        height: 100%; width: 100%;
+        margin-top: -5%;
+        display: flex; flex-direction: row;
+        justify-content: space-around; align-items: start;
+        background-color: rgba(250, 235, 215, 0.1);
+    }
+
+    & .solar-titles {
+        height: 90%;
+        display: flex; flex-direction: column;
+        align-items: end; justify-content: end;
+    }
+
+    & .solar-day {
+        height: 90%;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: end;
+    }
+
+    & .solar-day .wday {
+        color: #dce26b;
+    }
+
+    & #lunar-card {
+        grid-area: 4 / 1 / 11 / 2;
+        height: 100%;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: start;
+        padding-top: 5px;
+        background-color: #4c4c4c;
+    }
+
+    & .lunar-title {
+        align-self: flex-start;
+        padding-left: 55px;
+        color: #dce26b;
+    }
+
+    & .phase-cards {
+        display: flex; flex-direction: row;
+        align-items: center; justify-content: center;
+    }
+
+    & .phase-card {
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        margin-left: 12px; margin-right: 12px; margin-top: 5px;
+    }
+
+    & .phase-title {margin-bottom: 5px;}
+
+}
+
+/* ALERTS TAB */
+#alerts {
+    & .location-display {
+        color: aliceblue;
+        margin-bottom: -10px;
+    }
+
+    & .data {
+        height: 106%; max-height: 106%;
+        min-width: 531.719px; width: max-content; 
+        margin-left: 20px;
+        overflow-y: scroll;
+    }
+
+    & pre {
+        font-size: 14px;
+        background: none; border: none; box-shadow: none;
+        color: aliceblue;
+    }
+}

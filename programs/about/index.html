@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Icons -->
+        <link rel="icon" type="image/png" sizes="32x32" href="../../static/icons/notes-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="../../static/icons/notes-16x16.png"/>
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://unpkg.com/98.css"/>
+        <link rel="stylesheet" href="about.css"/>
+
+        <title>About</title>
+    </head>
+    <body>
+        <div id="about" class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">
+                    <img src="../../static/icons/notes-16x16.png">&nbsp;&nbsp;About
+                </div>
+                <div class="title-bar-controls">
+                    <button id="about-min" aria-label="Minimize" class="min-button"></button>
+                    <button id="about-close" aria-label="Close" class="close-button"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <h2>Welcome to Fair Weather Friend!</h2>
+                <p>Bringing you the weather from your friendly, neighborhood weather nerds at the <a href="http://wxqa.com">Citizen Weather Observer Program</a> in a nostalgic package!</p>
+                <p>This weather app aims to replicate The Weather Channel's <a href="https://twcclassics.com/information/weatherstar-4000-flavors.html">WeatherSTAR 4000</a> display of the early 90's in a Windows 98 inspired UI</p>
+                <h3>More Project Info</h3>
+                <p><a href=""><img src="../../static/icons/githubpixelicon.svg"></a>&nbsp;&nbsp;Find more information about the project on <a href="">Github</a></p>
+                <p><a href="https://www.rainbowrest.xyz"><img src="../../static/icons/swagger.png"></a>&nbsp;&nbsp;Check out my <a href="https://www.rainbowrest.xyz">Rainbow REST API docs</a></p>
+                <p><a href="mailto:animatronic@protonmail.com"><img src="../../static/icons/mail.png"></a>&nbsp;&nbsp;Shoot me an <a href="mailto:animatronic@protonmail.com">email</a></p>
+                <h3>Data Sources</h3>
+                <p><b>Weather observations</b> from <a href="http://wxqa.com">CWOP</a> via the <a href="https://synopticdata.com/weatherapi/">Synoptic Data API</a> and the National Weather Service's <a href="https://digital.mdl.nws.noaa.gov/xml/rest.php">National Digital Forecast Database</a></p>
+                <p><b>Weather alerts</b> from the <a href="https://www.weather.gov">NWS MapClick API</a></p>
+                <p><b>Weather forecasting</b> from the <a href="https://vlab.noaa.gov/web/mdl/nbm">National Blend of Models</a> via NOAA's <a href="https://nomads.ncep.noaa.gov">NOMADS</a></p>
+                <p><b>Geodata</b> from <a href="https://developers.google.com/maps/documentation/geocoding/overview">Google Maps</a> and <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a></p>
+                <h3>Assets</h3>
+                <p><b>CSS Styling</b> from <a href="https://jdan.github.io/98.css/">98.css</a> by Jordan Scales</p>
+                <p><span id="ws-credit">WeatherSTAR 4000 font </span> from <a href="https://twcclassics.com/downloads.html">TWC Classics</a> by Charles A. and Nick S.</p>
+            </div>
+        </div>
+    </body>
+</html>

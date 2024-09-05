@@ -1,0 +1,161 @@
+@font-face {
+    font-family: 'STAR 4000';
+    src: url('static/fonts/STAR4-wf/STAR4.woff2') format('woff2'),
+         url('static/fonts/STAR4-wf/STAR4.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'STAR 4000 Extended';
+    src: url('static/fonts/STAR4-wf/STAR4Extended.woff2') format('woff2'),
+        url('static/fonts/STAR4-wf/STAR4Extended.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'STAR 4000 Small';
+    src: url('static/fonts/STAR4-wf/STAR4Small.woff2') format('woff2'),
+        url('static/fonts/STAR4-wf/STAR4Small.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Styling for "desktop" */
+html, body {
+    box-sizing: border-box;
+    height: 100%;
+    overflow: hidden;
+}
+
+button.active {
+    box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+}
+
+#app {
+    height: 100%; width: 100%;
+}
+
+#desktop {
+    position: relative;
+    display: flex; flex-wrap: wrap; box-sizing: border-box;
+    align-items: center; justify-content: center;
+    padding-left: 0; padding-right: 0;
+    inset: 0;
+    height: 100%; width: 100%;
+    background-image: url('https://www.dropbox.com/scl/fi/yneyaase3vqj3x72wath1/waves_background.gif?rlkey=ex7f5cbyn9igpq2bpz3cd6n36&raw=1'); 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+/* Shortcuts section */
+#shortcuts {
+    position: absolute;
+    display: flex; flex-wrap: wrap; box-sizing: border-box;
+    top: 0; left: 0;
+    margin-top: 1rem;
+    align-items: start; justify-content: start;
+    z-index: 0;
+}
+
+#shortcuts button {
+    width: 95px;
+    padding: 5px;
+    background-color: transparent;
+    box-shadow: none;
+    font-family: "Pixelated MS Sans Serif", Arial;
+    color: aliceblue;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    text-shadow: 1px 1px 5px #24240A;
+    cursor: pointer;
+}
+
+#shortcuts button img {
+    height: 55px; width: auto;
+    margin-bottom: 5px;
+}
+
+/* Programs section */
+#programs {
+    height: 100%;
+    width: 100%;
+}
+
+#programs iframe {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+
+#about-program {
+    height:441px; 
+    width:369.333px;
+}
+
+#fwf-program {
+    height: 465px;
+    width: 622px;
+}
+
+#location-program {
+    height: 126px;
+    width: 272px;
+}
+
+/* Taskbar section */
+#taskbar {
+    position: absolute;
+    display: flex; flex-direction: row;
+    height: 33.42px;
+    bottom: 0; left: 0; right: 0;
+    padding-left: 7px; padding-right: 7px;
+    padding-top: 0.3rem; padding-bottom: 0.3rem;
+    align-items: center; justify-content: space-between;
+    z-index: 5;
+}
+
+#taskbar #left {
+    display: inline-grid; grid-template-columns: auto auto auto;
+    column-gap: 4px;
+    justify-content: start;
+}
+
+#taskbar button {
+    width: 175px;
+    display: flex; flex-direction: row; box-sizing: border-box;
+    align-items: center; justify-content: start;
+    padding-left: 10px !important;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    font-stretch: expanded;
+}
+
+#taskbar button img {
+    width: 15px;
+    height: 15px;
+}
+
+#taskbar #clock {
+    display: block;
+    height: 23.83px; width: 60px;
+    padding: 3px 0;
+    right: 0;
+    text-align: center;
+    border-bottom-color: #fff;
+    border-right-color: #fff; 
+    border-left-color: gray; 
+    border-top-color: gray; 
+    color: black;
+    border: 1px solid; 
+    font-size: 11px;
+}
+

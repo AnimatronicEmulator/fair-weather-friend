@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+
+.window {
+    margin: 0;
+    box-sizing: border-box;
+    line-height: 1.25rem;
+    width: 272px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.field-row-stacked {
+    width: 250px;
+}
