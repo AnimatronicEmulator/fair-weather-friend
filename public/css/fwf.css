@@ -1,23 +1,23 @@
 @font-face {
     font-family: 'STAR 4000';
-    src: url('../../static/fonts/STAR4-wf/STAR4.woff2') format('woff2'),
-         url('../../static/fonts/STAR4-wf/STAR4.woff') format('woff');
+    src: url('/fonts/STAR4.woff2') format('woff2'),
+         url('/fonts/STAR4.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'STAR 4000 Extended';
-    src: url('../../static/fonts/STAR4-wf/STAR4Extended.woff2') format('woff2'),
-        url('../../static/fonts/STAR4-wf/STAR4Extended.woff') format('woff');
+    src: url('/fonts/STAR4Extended.woff2') format('woff2'),
+        url('/fonts/STAR4Extended.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'STAR 4000 Small';
-    src: url('../../static/fonts/STAR4-wf/STAR4Small.woff2') format('woff2'),
-        url('../../static/fonts/STAR4-wf/STAR4Small.woff') format('woff');
+    src: url('/fonts/STAR4Small.woff2') format('woff2'),
+        url('/fonts/STAR4Small.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'STAR 4000';
-    src: url('../../static/fonts/STAR4-wf/STAR4.woff2') format('woff2'),
-         url('../../static/fonts/STAR4-wf/STAR4.woff') format('woff');
+    src: url('/fonts/STAR4.woff2') format('woff2'),
+         url('/fonts/STAR4.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
